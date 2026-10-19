@@ -19,6 +19,12 @@ cask "mac-explorer" do
   app "Mac Explorer.app"
 
   caveats <<~EOS
+    感谢使用 Mac Explorer。
+
+    如果它让你的日常文件管理更顺手，
+    欢迎在 GitHub 点一颗 Star，支持项目继续完善：
+    https://github.com/qixiaoyu27/Mac-Explorer
+
     Mac Explorer is not notarized by Apple.
     If macOS blocks opening it, review System Settings > Privacy & Security.
     Homebrew does not disable Gatekeeper or remove quarantine for this app.
