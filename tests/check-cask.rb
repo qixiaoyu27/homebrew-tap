@@ -24,10 +24,11 @@ cases = {
 cases.each do |locales, (expected, greeting, security)|
   config = Cask::Config.new(default: { languages: locales }, env: {}, explicit: {})
   cask = Cask::CaskLoader.load(cask_path.read, config: config)
+  cask.config = config
   raise "Wrong language for #{locales}: #{cask.language}" if cask.language != expected
 
   text = cask.caveats
-  [greeting, security, "brew install --cask --adopt qixiaoyu27/tap/mac-explorer"].each do |message|
+  [greeting, security, "🌟 Star"].each do |message|
     raise "Missing #{message} for #{locales}" unless text.include?(message)
   end
   raise "Mixed languages for #{locales}" if expected != "en" && text.include?("not notarized")
@@ -38,4 +39,4 @@ cases.each do |locales, (expected, greeting, security)|
   raise "Missing auto-update declaration" unless cask.auto_updates
 end
 
-puts "Cask checks passed: #{cases.length} language preferences; adoption guidance and app artifact."
+puts "Cask checks passed: #{cases.length} language preferences; Star invitation and app artifact."
