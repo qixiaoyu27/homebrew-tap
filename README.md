@@ -12,7 +12,15 @@ brew install --cask qixiaoyu27/tap/mac-explorer
 
 应用支持 Apple Silicon（M 系列）、macOS 13 及以上；Homebrew 自身的系统支持要求以其官网为准。当前版本未经 Apple 公证，首次打开如被拦截，请确认来源后在「系统设置 → 隐私与安全性」中允许。若系统明确提示恶意软件，请勿继续运行。
 
-若之前已通过 DMG 或脚本安装，Homebrew 可能提示应用已存在。请先退出应用，将原来的 `Mac Explorer.app` 移到回收站，再执行安装命令；不要删除个人文件或偏好设置，不要使用 `--force` 强制覆盖。
+若之前已通过 DMG 或脚本安装，Homebrew 会提示应用已存在；此时直接执行 `brew upgrade` 也会提示未安装。确认现有应用是当前正式版后，执行以下命令接管：
+
+```sh
+brew install --cask --adopt qixiaoyu27/tap/mac-explorer
+```
+
+`--adopt` 保留现有应用文件并登记 Homebrew 安装记录，不会更新应用版本。旧版本请先通过应用内更新或 DMG 升级；无需删除应用、个人文件或偏好设置，也不要使用 `--force` 强制覆盖。接管成功后才能使用下方的 Homebrew 更新命令。
+
+Mac Explorer 的安装提示跟随 macOS 的语言偏好，支持简体中文、繁体中文和英文，未匹配时回退到英文；Homebrew 自身的日志由 Homebrew 控制。
 
 ## 更新与卸载
 
@@ -40,6 +48,7 @@ brew style qixiaoyu27/tap/mac-explorer
 brew audit --cask qixiaoyu27/tap/mac-explorer
 brew livecheck --cask qixiaoyu27/tap/mac-explorer
 brew fetch --cask qixiaoyu27/tap/mac-explorer
+brew ruby tests/check-cask.rb
 ```
 
 提交并推送后，用户通过 `brew update` 获取新版本定义。此仓库使用 Homebrew 标准更新流程，不会自动修改 Cask 版本。
