@@ -1,6 +1,6 @@
 cask "mac-explorer" do
-  version "1.2.1"
-  sha256 "67f757f4307cc3006c62b332b68b68900e37d51ac411f6fde731aca65da7a150"
+  version "1.2.2"
+  sha256 "ccb41ee7f760570bda27cae7320bde97d6e4b4601edec04953220da4e9711cb7"
 
   url "https://github.com/qixiaoyu27/Mac-Explorer/releases/download/v#{version}/Mac-Explorer-Native-#{version}-mac-arm64.zip"
   name "Mac Explorer"
