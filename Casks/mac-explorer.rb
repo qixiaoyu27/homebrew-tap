@@ -1,6 +1,6 @@
 cask "mac-explorer" do
-  version "1.9.0"
-  sha256 "7f7be4bb79236633de57f254eb0d80333308945fef0ef095ee17ef44dd4cd8f5"
+  version "1.9.1"
+  sha256 "40246984c6bf13d3de0eeb8830434fce425b45fb04a378634cb77de192ff125c"
 
   language "zh-Hans" do
     "zh-Hans"
